@@ -3,9 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-// use Livewire\Livewire;
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ViewMoviesTest extends TestCase
 {
@@ -53,12 +52,10 @@ class ViewMoviesTest extends TestCase
             'https://api.themoviedb.org/3/search/movie?query=jumanji' => $this->fakeSearchMovies(),
         ]);
 
-        // Livewire::test('search-dropdown')
-        //     ->assertDontSee('jumanji')
-        //     ->set('search', 'jumanji')
-        //     ->assertSee('Jumanji');
-
-        $this->assertTrue(true);
+        Livewire::test('search-drop-down')
+            ->assertDontSee('jumanji')
+            ->set('search', 'jumanji')
+            ->assertSee('Jumanji');
     }
 
     private function fakeSearchMovies()
