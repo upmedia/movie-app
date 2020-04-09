@@ -3,7 +3,7 @@ module.exports = {
     extend: {
       width: {
         '96': '24rem',
-      }
+      },
     },
     spinner: (theme) => ({
       default: {
@@ -14,7 +14,6 @@ module.exports = {
       },
     }),
   },
-  variants: {},
   plugins: [
     require('tailwindcss-spinner')(), // no options to configure
   ],
