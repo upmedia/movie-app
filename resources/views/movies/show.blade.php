@@ -95,14 +95,17 @@
             <div class="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 @foreach($movie['cast'] as $cast)
                     <div class="mt-8">
-                        <a href="#">
+                        <a
+                            href="{{ route('peoples.show', $cast['id']) }}"
+                            class="relative block w-full h-100 overflow-hidden rounded shadow"
+                        >
                             <img src="https://image.tmdb.org/t/p/w300{{ $cast['profile_path'] }}"
-                                alt="Parasite"
-                                class="hover:opacity-75 transition ease-in-out duration-150"
+                                alt="{{ $cast['character'] }}"
+                                class="transform hover:opacity-90 hover:scale-105 transition ease-in-out duration-150"
                             />
                         </a>
                         <div class="mt-2">
-                            <a href="#" class="text-lg mt-2 hover:text-gray-300">{{ $cast['name'] }}</a>
+                            <a href="{{ route('peoples.show', $cast['id']) }}" class="text-lg mt-2 hover:text-gray-300">{{ $cast['name'] }}</a>
                             <div class="text-sm text-gray-400">
                                 {{ $cast['character'] }}
                             </div>
@@ -123,6 +126,7 @@
                     <div>
                         <a
                             href="#"
+                            class="relative block w-full h-full overflow-hidden rounded shadow"
                             @click.prevent="
                                 isOpen = true
                                 image='{{ 'https://image.tmdb.org/t/p/original/' . $image['file_path'] }}'
@@ -130,8 +134,8 @@
                         >
                             <img
                                 src="https://image.tmdb.org/t/p/w300{{ $image['file_path'] }}"
-                                alt="image1"
-                                class="hover:opacity-75 transition ease-in-out duration-150"
+                                alt="image"
+                                class="transform hover:opacity-90 hover:scale-105 transition ease-in-out duration-150"
                             />
                         </a>
                     </div>

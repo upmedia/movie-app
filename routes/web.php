@@ -6,4 +6,6 @@ Route::get('/', 'MoviesController@index')->name('movies.index');
 Route::get('/movies/{movie}', 'MoviesController@show')->name('movies.show');
 
 Route::get('/peoples', 'PeoplesController@index')->name('peoples.index');
-Route::get('/peoples/{people}', 'PeoplesController@show')->name('peoples.show');
+Route::get('/peoples/page/{page?}', 'PeoplesController@index')->name('peoples.pagination');
+
+Route::get('/peoples/{person}', 'PeoplesController@show')->name('peoples.show');

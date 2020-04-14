@@ -5,7 +5,7 @@
         <img src="{{ $movie['poster_path'] }}"
             alt="{{ $movie['title'] }}"
             title="{{ $movie['title'] }}"
-            class="transform hover:opacity-90 hover:scale-105 transition ease-in-out duration-150 "
+            class="transform hover:opacity-90 hover:scale-105 transition ease-in-out duration-150"
         />
     </a>
     <div class="mt-2">
