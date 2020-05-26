@@ -1,5 +1,5 @@
 <div class="mt-8">
-    <a href="{{ route('movies.show', $show['id']) }}"
+    <a href="{{ route('tvshows.show', $show['id']) }}"
         class="relative block w-full h-100 overflow-hidden rounded shadow"
     >
         <img src="{{ $show['poster_path'] }}"

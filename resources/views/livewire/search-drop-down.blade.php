@@ -31,27 +31,78 @@
                 <ul>
                     @foreach ($searchResults as $result)
                         <li class="border-b border-gray-700">
-                            <a
-                                href="{{ route('movies.show', $result['id']) }}"
-                                class="block hover:bg-gray-700 transition ease-out duration-150 px-3 py-3 text-sm flex items-center"
-                                @if($loop->last) @keydown.tab="isOpen = false" @endif
-                            >
-                                @if ($result['poster_path'])
-                                    <img
-                                        src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}"
-                                        alt="{{ $result['title'] }}"
-                                        class="w-8"
-                                    >
-                                @else
-                                    <img
-                                        src="https://via.placeholder.com/50x75"
-                                        class="w-8"
-                                    >
-                                @endif
+                            @if ($result['media_type'] == 'movie')
+                                <a
+                                    href="{{ route('movies.show', $result['id']) }}"
+                                    class="block hover:bg-gray-700 transition ease-out duration-150 px-3 py-3 text-sm flex items-center"
+                                    @if($loop->last) @keydown.tab="isOpen = false" @endif
+                                >
+                                    @if ($result['poster_path'])
+                                        <img
+                                            src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}"
+                                            alt="{{ $result['title'] }}"
+                                            class="w-8"
+                                        >
+                                    @else
+                                        <img
+                                            src="https://via.placeholder.com/50x75"
+                                            class="w-8"
+                                        >
+                                    @endif
 
-                                <span class="ml-4">{{ $result['title'] }}</span>
-                            </a>
+                                    <span class="ml-4">
+                                         {{ $result['title'] }}
+                                    </span>
+                                </a>
+                            @elseif ($result['media_type'] == 'tv')
+                                <a
+                                    href="{{ route('tvshows.show', $result['id']) }}"
+                                    class="block hover:bg-gray-700 transition ease-out duration-150 px-3 py-3 text-sm flex items-center"
+                                    @if($loop->last) @keydown.tab="isOpen = false" @endif
+                                >
+                                    @if ($result['poster_path'])
+                                        <img
+                                            src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}"
+                                            alt="{{ $result['name'] }}"
+                                            class="w-8"
+                                        >
+                                    @else
+                                        <img
+                                            src="https://via.placeholder.com/50x75"
+                                            class="w-8"
+                                        >
+                                    @endif
+
+                                    <span class="ml-4">
+                                        {{ $result['name'] }}
+                                    </span>
+                                </a>
+                            @elseif ($result['media_type'] == 'person')
+                                <a
+                                    href="{{ route('peoples.show', $result['id']) }}"
+                                    class="block hover:bg-gray-700 transition ease-out duration-150 px-3 py-3 text-sm flex items-center"
+                                    @if($loop->last) @keydown.tab="isOpen = false" @endif
+                                >
+                                    @if ($result['profile_path'])
+                                        <img
+                                            src="https://image.tmdb.org/t/p/w92/{{ $result['profile_path'] }}"
+                                            alt="{{ $result['name'] }}"
+                                            class="w-8"
+                                        >
+                                    @else
+                                        <img
+                                            src="https://via.placeholder.com/50x75"
+                                            class="w-8"
+                                        >
+                                    @endif
+
+                                    <span class="ml-4">
+                                        {{ $result['name'] }}
+                                    </span>
+                                </a>
+                            @endif
                         </li>
+
                     @endforeach
                 </ul>
             @else
