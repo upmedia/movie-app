@@ -42,9 +42,11 @@ class MoviesViewModel extends ViewModel
                 return [$value => $this->genres()->get($value)];
             })->implode(', ');
 
+            $releaseDate = isset($movie['release_date']) ? Carbon::parse($movie['release_date']  )->format('M d, Y') : 'Not yet set';
+
             return collect($movie)->merge([
                 'poster_path' => 'https://image.tmdb.org/t/p/w200' . $movie['poster_path'],
-                'release_date' => Carbon::parse($movie['release_date'])->format('M d, Y'),
+                'release_date' => $releaseDate,
                 'vote_average' => $movie['vote_average'] * 10 . '%',
                 'genres' => $genresFormatted,
             ])->only([
