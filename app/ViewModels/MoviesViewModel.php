@@ -42,7 +42,7 @@ class MoviesViewModel extends ViewModel
                 return [$value => $this->genres()->get($value)];
             })->implode(', ');
 
-            dump($movie);
+            dd($movie);
 
             return collect($movie)->merge([
                 'poster_path' => 'https://image.tmdb.org/t/p/w200' . $movie['poster_path'],
