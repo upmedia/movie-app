@@ -42,8 +42,6 @@ class MoviesViewModel extends ViewModel
                 return [$value => $this->genres()->get($value)];
             })->implode(', ');
 
-            dd($movie);
-
             return collect($movie)->merge([
                 'poster_path' => 'https://image.tmdb.org/t/p/w200' . $movie['poster_path'],
                 'release_date' => Carbon::parse($movie['release_date'])->format('M d, Y'),
