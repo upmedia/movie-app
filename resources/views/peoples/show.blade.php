@@ -56,6 +56,8 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                     @foreach ($knownForMovies as $movie)
+                        {{ var_dump($movie) }}}
+
                         <div class="mt-4">
                             <a href="{{ $movie['linkToPage'] }}"
                                 class="relative block w-full h-100 overflow-hidden rounded shadow"
